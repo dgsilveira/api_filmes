@@ -28,6 +28,7 @@ namespace FilmesAPI
         {
             services.AddDbContext<AppDbContext>(opts => opts.UseMySQL(Configuration.GetConnectionString("CinemaConnection")));
             services.AddControllers();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FilmesAPI", Version = "v1" });
